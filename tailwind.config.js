@@ -2,21 +2,31 @@
 module.exports = {
   content: ["./src/**/*.{html,js}"],
   theme: {
+    
     extend: {
       colors: {
-        "gray-20": "#F8F4EB",
+        "gray-20": "#F8F4EB", //body text, main text color
         "gray-200": "#B3B3B3", //body text
-        "gray-500": "#5A5A5A", //text
-        "primary-500": "#4A4A4A", //buttons, borders, loght contrast elements
-        "primary-600": "#2E2E2E",
-        "primary-850": "#1C1C1C", //background
-        "primary-900": "#1A1A1A", //background
-        "secondary-300": "#fda4af", //could use rose-300 instead, its the same color
-        "secondary-400": "#A8576B", //button hover?
-        "secondary-950": "#4C0519", //primary buttons
+        "gray-250": "#9E9E9E", //text
+        
+        "primary-light": "#474747", //background
+        "primary-medium": "#2E2E2E",
+        "primary-dark": "#1A1A1A", //background
+
+        "rose-hover": "#fda4af", //could use rose-300 instead, its the same color
+        "rose-light": "#A8576B", 
+        "rose-dark": "#42222A",
         "gold-accent": "#D4AF37",
-        "cool-teal": "#168C80", //teal-600 instead, its the same color
       },
+      backgroundImage: (theme => ({
+        "gradient-gray": "linear-gradient(90deg, #1A1A1A 0%, #474747 100%)",
+        "mobile-home": "url('./src/assets/first-section-photo.png')"
+      })),
+     fontFamily: {
+      "play": [ "Exo", "sans-serif"],
+      "oxanium": ["Oxanium", "sans-serif"],
+      "exo": ["Play", "sans-serif"]
+     } 
     },
   },
   plugins: [],
