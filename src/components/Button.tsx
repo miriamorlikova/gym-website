@@ -43,6 +43,13 @@ export const buttonStyles = cva(["transition-all"], {
         "tracking-wider",
         "lg:text-sm",
       ],
+      noxpadding: [
+        "rounded-md",
+        "text-xs",
+        "py-3",
+        "tracking-wider",
+        "lg:text-sm",
+      ],
       icon: [
         "rounded",
         "flex",

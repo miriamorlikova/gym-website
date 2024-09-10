@@ -19,13 +19,15 @@ module.exports = {
       },
       backgroundImage: (theme) => ({
         "gradient-gray": "linear-gradient(180deg, #1A1A1A 0%, #474747 100%)",
+        "gradient-dark":
+          "linear-gradient(180deg, #1A1A1A 70%, rgba(28,28,28,0.85) 100%)",
         "gradient-rose": "linear-gradient(90deg, #A8576B 0%, #42222A 100%)",
         "mobile-home": "url('./src/assets/first-section-photo.png')",
       }),
       fontFamily: {
         exo: ["Exo", "sans-serif"],
         oxanium: ["Oxanium", "sans-serif"],
-        play: ["Play", "sans-serif"],
+        fredoka: ["Fredoka", "sans-serif"],
       },
       content: {
         furitext: "url('./assets/faded-logo.png')",

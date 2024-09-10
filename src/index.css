@@ -6,12 +6,9 @@ html,
 body,
 #root,
 .app {
-  height: 100%;
-  width: 100%;
-  font-family: 'Play', 'sans-serif';
+  font-family: "Fredoka", "sans-serif";
   @apply text-gray-20;
 }
 
-.gradient-button:hover {
-  background-position: 100% 0;
-}
+/*  height: 100%;
+  width: 100%; ? */
