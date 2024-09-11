@@ -10,12 +10,14 @@ import {
   useSelectedPage,
 } from "@/hooks/useSelectedPage";
 
-type NavbarProps = {};
+type NavbarProps = {
+  isMenuOpen: boolean;
+  setIsMenuOpen: (value: boolean) => void;
+};
 
-export default function Navbar(props: NavbarProps) {
+export default function Navbar({ isMenuOpen, setIsMenuOpen }: NavbarProps) {
   const isAboveMediumScreens = useMediaQuery("(min-width: 1075px)");
   const isAboveSmallScreens = useMediaQuery("(min-width: 550px)");
-  const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false);
   const { setSelectedPage } = useSelectedPage();
   return (
     <div className="flex justify-between">
@@ -61,10 +63,6 @@ export default function Navbar(props: NavbarProps) {
             </div>
           )}
         </div>
-      )}
-      {/* MOBILE MENU */}
-      {!isAboveMediumScreens && isMenuOpen && (
-        <MobileNavbar isMenuOpen={isMenuOpen} setIsMenuOpen={setIsMenuOpen} />
       )}
     </div>
   );

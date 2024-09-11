@@ -10,5 +10,23 @@ body,
   @apply text-gray-20;
 }
 
+*::-webkit-scrollbar {
+  @apply w-2 bg-primary-light bg-opacity-70;
+}
+
+*::-webkit-scrollbar-thumb {
+  @apply rounded-full bg-primary-medium;
+}
+.scrollbar-hidden::-webkit-scrollbar-thumb {
+  @apply bg-transparent;
+}
+
+.scrollbar-hidden:hover::-webkit-scrollbar-thumb {
+  @apply bg-primary-light;
+}
+.scrollbar-hidden:hover::-webkit-scrollbar-thumb {
+  @apply bg-primary-light;
+}
+
 /*  height: 100%;
   width: 100%; ? */

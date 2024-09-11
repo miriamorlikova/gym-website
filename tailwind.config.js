@@ -35,7 +35,8 @@ module.exports = {
         sparkles: "url('./assets/sparkles.png')",
       },
       letterSpacing: {
-        wide: ".05em",
+        normal: "0.05em",
+        wide: ".08em",
         wider: ".15em",
         widest: ".18em",
       },

@@ -18,6 +18,7 @@ export const buttonStyles = cva(["transition-all"], {
         "hover:tracking-widest",
         "hover:ring-2",
         "hover:ring-rose-light",
+        "hover:ring-opacity-50",
       ],
       secondary: [
         "text-gold-accent",
