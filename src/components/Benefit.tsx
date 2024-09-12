@@ -1,13 +1,20 @@
-import { HiOutlineHomeModern } from "react-icons/hi2";
 import AnchorLink from "react-anchor-link-smooth-scroll";
 import { BenefitType } from "@/layouts/BenefitsSection";
 import { useSelectedPage } from "@/hooks/useSelectedPage";
-import { Button } from "./Button";
+import { motion } from "framer-motion";
+
+const childVariant = {
+  hidden: { opacity: 0, scale: 0.9 },
+  visible: { opacity: 1, scale: 1 },
+};
 
 export default function Benefit({ icon, title, description }: BenefitType) {
   const { setSelectedPage } = useSelectedPage();
   return (
-    <div className="mt-5 rounded-md border border-primary-dark bg-primary-medium bg-opacity-50 px-5 py-16 text-center shadow-xl">
+    <motion.div
+      className="mt-5 rounded-md border border-primary-dark bg-primary-medium bg-opacity-50 px-5 py-16 text-center shadow-xl"
+      variants={childVariant}
+    >
       <div className="mb-4 flex justify-center">
         <div className="rounded-full border border-gray-20 border-opacity-50 bg-rose-dark p-4">
           {icon}
@@ -21,6 +28,6 @@ export default function Benefit({ icon, title, description }: BenefitType) {
       <AnchorLink className="text-gold-accent hover:text-yellow-400 hover:underline hover:underline-offset-4">
         Learn more
       </AnchorLink>
-    </div>
+    </motion.div>
   );
 }

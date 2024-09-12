@@ -8,8 +8,14 @@ import {
 import { motion } from "framer-motion";
 import HText from "@/components/HText";
 import Benefit from "@/components/Benefit";
+import HappyMembersSection from "./HappyMembersSection";
 
-type Props = {};
+const container = {
+  hidden: {},
+  visible: {
+    transition: { staggerChildren: 0.2 },
+  },
+};
 
 export type BenefitType = {
   icon: JSX.Element;
@@ -38,18 +44,27 @@ const benefits: Array<BenefitType> = [
   },
 ];
 
-export default function BenefitsSection(props: Props) {
+export default function BenefitsSection() {
   const { setSelectedPage } = useSelectedPage();
   return (
     <section
       id="benefits"
-      className="mt-12 min-h-full w-screen gap-16 px-8 py-8 md:h-screen md:px-16 md:py-16"
+      className="mt-12 h-auto min-h-screen w-screen gap-16 px-8 py-8 md:px-16 md:py-16"
     >
       <motion.div
         onViewportEnter={() => setSelectedPage(SelectedPageValueType.Benefits)}
       >
         {/* HEADER SECTION */}
-        <div>
+        <motion.div
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.5 }}
+          transition={{ duration: 0.6 }}
+          variants={{
+            hidden: { opacity: 0, x: -50 },
+            visible: { opacity: 1, x: 0 },
+          }}
+        >
           <HText>elevate your life with every workout</HText>
           <p className="text-xs font-light tracking-normal sm:text-sm">
             Your fitness journey is more than just exercise, it's a lifestyle..
@@ -58,10 +73,17 @@ export default function BenefitsSection(props: Props) {
             Every rep, every step, and every drop of sweat brings you closer to
             your best self.
           </p>
-        </div>
+        </motion.div>
 
         {/* BENEFITS SECTIONS */}
-        <div className="mt-5 items-center justify-between gap-8 md:flex">
+        <motion.div
+          className="mb-16 mt-5 items-center justify-between gap-8 md:mb-0 md:flex"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.5 }}
+          transition={{ duration: 0.6 }}
+          variants={container}
+        >
           {benefits.map((benefit: BenefitType) => (
             <Benefit
               key={benefit.title}
@@ -70,8 +92,9 @@ export default function BenefitsSection(props: Props) {
               description={benefit.description}
             />
           ))}
-          <div></div>
-        </div>
+        </motion.div>
+        {/* HAPPY MEMBERS SECTION */}
+        <HappyMembersSection />
       </motion.div>
     </section>
   );

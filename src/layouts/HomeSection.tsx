@@ -17,7 +17,7 @@ export default function HomeSection(props: HomeSectionProps) {
   const isAboveMediumScreens = useMediaQuery("(min-width: 1075px)");
 
   return (
-    <section id="home" className="w-screen gap-16 pt-16 md:h-screen md:pb-0">
+    <section id="home" className="h-auto w-screen gap-16 pt-16 md:pb-0">
       {/* IMAGE AND MAIN HEADER */}
       <motion.div
         className="items-center justify-center gap-10 px-8 pt-16 md:flex md:h-5/6 lg:px-12"
