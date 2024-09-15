@@ -8,25 +8,10 @@ body,
 .app {
   font-family: "Fredoka", "sans-serif";
   @apply text-gray-20;
+  overflow-x: hidden;
 }
 
-*::-webkit-scrollbar {
-  @apply w-2 bg-primary-light bg-opacity-70;
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #474747 #1a1a1a; /* Thumb color and track color */
 }
-
-*::-webkit-scrollbar-thumb {
-  @apply rounded-full bg-primary-medium;
-}
-.scrollbar-hidden::-webkit-scrollbar-thumb {
-  @apply bg-transparent;
-}
-
-.scrollbar-hidden:hover::-webkit-scrollbar-thumb {
-  @apply bg-primary-light;
-}
-.scrollbar-hidden:hover::-webkit-scrollbar-thumb {
-  @apply bg-primary-light;
-}
-
-/*  height: 100%;
-  width: 100%; ? */

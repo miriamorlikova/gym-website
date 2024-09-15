@@ -49,7 +49,7 @@ export default function BenefitsSection() {
   return (
     <section
       id="benefits"
-      className="mt-12 h-auto min-h-screen w-screen gap-16 px-8 py-8 md:px-16 md:py-16"
+      className="mt-12 h-auto w-screen gap-16 px-8 py-8 md:px-16 md:py-16"
     >
       <motion.div
         onViewportEnter={() => setSelectedPage(SelectedPageValueType.Benefits)}
