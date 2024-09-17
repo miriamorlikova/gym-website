@@ -49,7 +49,7 @@ export default function MouseCursor() {
           position: "fixed",
           pointerEvents: "none",
           zIndex: 9999,
-          transform: cursorProps.xy.interpolate(
+          transform: cursorProps.xy.to(
             (x, y) => `translate3d(${x}px, ${y}px, 0)`
           ),
         }}
@@ -65,7 +65,7 @@ export default function MouseCursor() {
           position: "fixed",
           pointerEvents: "none",
           zIndex: 9998,
-          transform: shadowProps.xy.interpolate(
+          transform: shadowProps.xy.to(
             (x, y) => `translate3d(${x - 4}px, ${y - 4}px, 0)`
           ),
         }}
@@ -81,7 +81,7 @@ export default function MouseCursor() {
           position: "fixed",
           pointerEvents: "none",
           zIndex: 9997,
-          transform: shadow2Props.xy.interpolate(
+          transform: shadow2Props.xy.to(
             (x, y) => `translate3d(${x - 8}px, ${y - 8}px, 0)`
           ),
         }}

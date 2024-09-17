@@ -2,6 +2,7 @@ import AnchorLink from "react-anchor-link-smooth-scroll";
 import { BenefitType } from "@/layouts/BenefitsSection";
 import { useSelectedPage } from "@/hooks/useSelectedPage";
 import { motion } from "framer-motion";
+import InteractiveBg from "./InteractiveBg";
 
 const childVariant = {
   hidden: { opacity: 0, scale: 0.9 },
@@ -15,9 +16,14 @@ export default function Benefit({ icon, title, description }: BenefitType) {
       className="mt-5 rounded-md border border-primary-dark bg-primary-medium bg-opacity-50 px-5 py-16 text-center shadow-xl"
       variants={childVariant}
     >
-      <div className="mb-4 flex justify-center">
-        <div className="rounded-full border border-gray-20 border-opacity-50 bg-rose-dark p-4">
-          {icon}
+      <div className="relative px-8 py-16 md:px-16">
+        <div className="absolute inset-0">
+          <InteractiveBg />
+        </div>
+        <div className="mb-4 flex justify-center">
+          <div className="rounded-full border border-gray-20 border-opacity-50 bg-rose-dark p-4">
+            {icon}
+          </div>
         </div>
       </div>
 

@@ -3,6 +3,7 @@ import HomeSection from "./layouts/HomeSection";
 import PageHeader from "./layouts/PageHeader";
 import MouseCursor from "./components/MouseCursor";
 import ClassesSection from "./layouts/ClassesSection";
+import ContactUsSection from "./layouts/ContactUsSection";
 
 function App() {
   return (
@@ -12,6 +13,7 @@ function App() {
       <HomeSection />
       <BenefitsSection />
       <ClassesSection />
+      <ContactUsSection />
     </div>
   );
 }

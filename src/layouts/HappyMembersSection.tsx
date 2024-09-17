@@ -7,7 +7,7 @@ type Props = {};
 
 export default function HappyMembersSection(props: Props) {
   return (
-    <section className="h-auto max-w-full gap-16 pt-16 md:h-screen md:pb-0">
+    <section className="h-auto max-w-full gap-16 pt-16 md:h-fit md:pb-0">
       <div className="items-center justify-center md:flex">
         {/* PICTURE */}
         <div className="mt-0 sm:-mt-12 md:mt-12 md:max-w-[900px] md:basis-3/5 md:justify-items-start">
@@ -71,7 +71,7 @@ export default function HappyMembersSection(props: Props) {
             }}
           >
             <div className="mt-14 md:relative">
-              <div className="md:before:absolute md:before:-bottom-20 md:before:right-40 md:before:z-[1] md:before:content-sparkles">
+              <div className="md:before:absolute md:before:-bottom-16 md:before:right-40 md:before:z-[1] md:before:content-sparkles">
                 <Button>join now</Button>
               </div>
             </div>

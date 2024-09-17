@@ -77,7 +77,7 @@ export default function BenefitsSection() {
 
         {/* BENEFITS SECTIONS */}
         <motion.div
-          className="mb-16 mt-5 items-center justify-between gap-8 md:mb-0 md:flex"
+          className="mb-16 mt-5 items-center justify-between gap-8 md:flex"
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, amount: 0.5 }}
