@@ -1,18 +1,19 @@
-import {
-  SelectedPageValueType,
-  useSelectedPage,
-} from "../hooks/useSelectedPage";
-
+import { SelectedPageValueType } from "../App";
 import { motion } from "framer-motion";
 import HText from "@/components/HText";
 import Classes from "@/components/Classes";
 
-type Props = {};
-export default function ClassesSection(props: Props) {
-  const { setSelectedPage } = useSelectedPage();
-
+type ClassesSectionType = {
+  setSelectedPage: (value: SelectedPageValueType) => void;
+};
+export default function ClassesSection({
+  setSelectedPage,
+}: ClassesSectionType) {
   return (
-    <section id="ourclasses" className="w-full bg-primary-dark py-16 md:px-16">
+    <section
+      id="ourclasses"
+      className="mt-16 w-full bg-primary-dark py-16 pt-24 md:px-16 md:py-36"
+    >
       <motion.div
         onViewportEnter={() =>
           setSelectedPage(SelectedPageValueType.OurClasses)

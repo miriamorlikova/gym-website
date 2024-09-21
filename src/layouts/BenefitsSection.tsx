@@ -1,10 +1,7 @@
 import { HiOutlineHomeModern } from "react-icons/hi2";
 import { GrGroup } from "react-icons/gr";
 import { IoFitnessOutline } from "react-icons/io5";
-import {
-  SelectedPageValueType,
-  useSelectedPage,
-} from "@/hooks/useSelectedPage";
+import { SelectedPageValueType } from "@/App";
 import { motion } from "framer-motion";
 import HText from "@/components/HText";
 import Benefit from "@/components/Benefit";
@@ -17,7 +14,7 @@ const container = {
   },
 };
 
-export type BenefitType = {
+type BenefitType = {
   icon: JSX.Element;
   title: string;
   description: string;
@@ -44,12 +41,17 @@ const benefits: Array<BenefitType> = [
   },
 ];
 
-export default function BenefitsSection() {
-  const { setSelectedPage } = useSelectedPage();
+type BenefitSectionProps = {
+  setSelectedPage: (value: SelectedPageValueType) => void;
+};
+
+export default function BenefitsSection({
+  setSelectedPage,
+}: BenefitSectionProps) {
   return (
     <section
       id="benefits"
-      className="mt-12 h-auto w-screen gap-16 px-8 py-8 md:px-16 md:py-16"
+      className="mt-12 h-auto w-screen gap-16 px-8 py-8 pt-24 md:px-16 md:py-16 md:pt-36"
     >
       <motion.div
         onViewportEnter={() => setSelectedPage(SelectedPageValueType.Benefits)}
@@ -90,11 +92,12 @@ export default function BenefitsSection() {
               icon={benefit.icon}
               title={benefit.title}
               description={benefit.description}
+              setSelectedPage={setSelectedPage}
             />
           ))}
         </motion.div>
         {/* HAPPY MEMBERS SECTION */}
-        <HappyMembersSection />
+        <HappyMembersSection setSelectedPage={setSelectedPage} />
       </motion.div>
     </section>
   );

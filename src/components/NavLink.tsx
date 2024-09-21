@@ -1,16 +1,20 @@
 import AnchorLink from "react-anchor-link-smooth-scroll";
-import { useSelectedPage } from "@/hooks/useSelectedPage";
-import { type SelectedPageValueType } from "@/hooks/useSelectedPage";
+import { type SelectedPageValueType } from "@/App";
 
-type Props = {
+type NavLinkProps = {
   page: string;
+  selectedPage: SelectedPageValueType;
+  setSelectedPage: (value: SelectedPageValueType) => void;
 };
 
-export default function NavLink({ page }: Props) {
+export default function NavLink({
+  selectedPage,
+  setSelectedPage,
+  page,
+}: NavLinkProps) {
   const lowerCasePage = page
     .toLowerCase()
     .replace(/ /g, "") as SelectedPageValueType;
-  const { selectedPage, setSelectedPage } = useSelectedPage();
   return (
     <AnchorLink
       href={`#${lowerCasePage}`}

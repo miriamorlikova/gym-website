@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { useSpring, animated } from "react-spring";
 
 export default function MouseCursor() {
@@ -39,7 +39,7 @@ export default function MouseCursor() {
 
   return (
     <>
-      {/* Main cursor */}
+      {/* MAIN DOT */}
       <animated.div
         style={{
           width: 10,
@@ -55,7 +55,7 @@ export default function MouseCursor() {
         }}
       />
 
-      {/* First shadow */}
+      {/* FIRST SHADOW */}
       <animated.div
         style={{
           width: 8,
@@ -71,7 +71,7 @@ export default function MouseCursor() {
         }}
       />
 
-      {/* Second shadow */}
+      {/* SECOND SHADOW */}
       <animated.div
         style={{
           width: 6,

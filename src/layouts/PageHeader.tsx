@@ -1,14 +1,21 @@
+import { SelectedPageValueType } from "@/App";
 import logo from "@/assets/logo-header.png";
 import MobileNavbar from "@/components/MobileNavbar";
 import Navbar from "@/components/Navbar";
 import useMediaQuery from "@/hooks/useMediaQuery";
-import useScroll from "@/hooks/useScroll";
 import { useState } from "react";
 
-type PageHeaderProps = {};
+type PageHeaderProps = {
+  selectedPage: SelectedPageValueType;
+  setSelectedPage: (value: SelectedPageValueType) => void;
+  isTopOfPage: boolean;
+};
 
-export default function PageHeader(props: PageHeaderProps) {
-  const { isTopOfPage } = useScroll();
+export default function PageHeader({
+  selectedPage,
+  setSelectedPage,
+  isTopOfPage,
+}: PageHeaderProps) {
   const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false);
   const isAboveMediumScreens = useMediaQuery("(min-width: 1075px)");
 
@@ -19,12 +26,22 @@ export default function PageHeader(props: PageHeaderProps) {
       >
         <div className="flex w-full items-center justify-between">
           <img src={logo} alt="logo" className="h-8" />
-          <Navbar isMenuOpen={isMenuOpen} setIsMenuOpen={setIsMenuOpen} />
+          <Navbar
+            isMenuOpen={isMenuOpen}
+            setIsMenuOpen={setIsMenuOpen}
+            selectedPage={selectedPage}
+            setSelectedPage={setSelectedPage}
+          />
         </div>
       </div>
       {/* MOBILE MENU */}
       {!isAboveMediumScreens && isMenuOpen && (
-        <MobileNavbar isMenuOpen={isMenuOpen} setIsMenuOpen={setIsMenuOpen} />
+        <MobileNavbar
+          selectedPage={selectedPage}
+          setSelectedPage={setSelectedPage}
+          isMenuOpen={isMenuOpen}
+          setIsMenuOpen={setIsMenuOpen}
+        />
       )}
     </>
   );

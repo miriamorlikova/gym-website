@@ -2,10 +2,16 @@ import { Button } from "@/components/Button";
 import HText from "@/components/HText";
 import secondSectionPic from "../assets/second-section-picture.png";
 import { motion } from "framer-motion";
+import { SelectedPageValueType } from "@/App";
+import AnchorLink from "react-anchor-link-smooth-scroll";
 
-type Props = {};
+type HappyMembersProps = {
+  setSelectedPage: (value: SelectedPageValueType) => void;
+};
 
-export default function HappyMembersSection(props: Props) {
+export default function HappyMembersSection({
+  setSelectedPage,
+}: HappyMembersProps) {
   return (
     <section className="h-auto max-w-full gap-16 pt-16 md:h-fit md:pb-0">
       <div className="items-center justify-center md:flex">
@@ -72,7 +78,16 @@ export default function HappyMembersSection(props: Props) {
           >
             <div className="mt-14 md:relative">
               <div className="md:before:absolute md:before:-bottom-16 md:before:right-40 md:before:z-[1] md:before:content-sparkles">
-                <Button>join now</Button>
+                <Button>
+                  <AnchorLink
+                    onClick={() =>
+                      setSelectedPage(SelectedPageValueType.ContactUs)
+                    }
+                    href={`#${SelectedPageValueType.ContactUs}`}
+                  >
+                    join now
+                  </AnchorLink>
+                </Button>
               </div>
             </div>
           </motion.div>

@@ -5,17 +5,15 @@ module.exports = {
     extend: {
       colors: {
         "gray-20": "#F8F4EB", //body text, main text color
-        "gray-200": "#B3B3B3", //body text
-        "gray-250": "#9E9E9E", //text
 
         "primary-light": "#474747", //background
         "primary-medium": "#2C2C2C",
         "primary-dark": "#1A1A1A", //background
 
-        "rose-hover": "#fda4af", //could use rose-300 instead, its the same color
         "rose-light": "#A8576B",
         "rose-dark": "#42222A",
         "gold-accent": "#D4AF37",
+        "red-warning": "#90001A",
       },
       backgroundImage: (theme) => ({
         "gradient-gray": "linear-gradient(180deg, #1A1A1A 0%, #474747 100%)",
@@ -39,6 +37,9 @@ module.exports = {
         wide: ".08em",
         wider: ".15em",
         widest: ".18em",
+      },
+      fontSize: {
+        xxs: "0.55rem",
       },
     },
     screens: {

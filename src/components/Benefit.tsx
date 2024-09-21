@@ -1,16 +1,26 @@
 import AnchorLink from "react-anchor-link-smooth-scroll";
-import { BenefitType } from "@/layouts/BenefitsSection";
-import { useSelectedPage } from "@/hooks/useSelectedPage";
 import { motion } from "framer-motion";
 import InteractiveBg from "./InteractiveBg";
+import { SelectedPageValueType } from "@/App";
 
 const childVariant = {
   hidden: { opacity: 0, scale: 0.9 },
   visible: { opacity: 1, scale: 1 },
 };
 
-export default function Benefit({ icon, title, description }: BenefitType) {
-  const { setSelectedPage } = useSelectedPage();
+type BenefitProps = {
+  icon: JSX.Element;
+  title: string;
+  description: string;
+  setSelectedPage: (value: SelectedPageValueType) => void;
+};
+
+export default function Benefit({
+  icon,
+  title,
+  description,
+  setSelectedPage,
+}: BenefitProps) {
   return (
     <motion.div
       className="mt-5 rounded-md border border-primary-dark bg-primary-medium bg-opacity-50 px-5 py-16 text-center shadow-xl"
@@ -31,7 +41,13 @@ export default function Benefit({ icon, title, description }: BenefitType) {
       <p className="my-3 text-xs font-light tracking-normal sm:text-sm">
         {description}
       </p>
-      <AnchorLink className="text-gold-accent hover:text-yellow-400 hover:underline hover:underline-offset-4">
+      <AnchorLink
+        className="text-gold-accent hover:text-yellow-400 hover:underline hover:underline-offset-4"
+        onClick={() => {
+          setSelectedPage(SelectedPageValueType.ContactUs);
+        }}
+        href={`#${SelectedPageValueType.ContactUs}`}
+      >
         Learn more
       </AnchorLink>
     </motion.div>

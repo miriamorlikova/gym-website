@@ -1,4 +1,3 @@
-// InteractiveDots.tsx
 import React, { useRef, useMemo, useCallback } from "react";
 import { Canvas, useFrame } from "@react-three/fiber";
 import { Points, PointMaterial } from "@react-three/drei";
@@ -8,15 +7,15 @@ import { Points as ThreePoints } from "three";
 type PointsRef = React.MutableRefObject<ThreePoints | null>;
 
 function PointsComponent({ pointsRef }: { pointsRef: PointsRef }) {
-  // Continuous slow rotation effect for points
+  // SLOW ROTATION EFECT
   useFrame(() => {
     if (pointsRef.current) {
-      pointsRef.current.rotation.x += 0.0005; // Slow continuous rotation
+      pointsRef.current.rotation.x += 0.0005; // SLOWING ROTATION
       pointsRef.current.rotation.y += 0.0005;
     }
   });
 
-  // Float32Array - for handling large amounts of data in 3D, random positions -5 to 5
+  // Float32Array, RANDOM POSITIONS FROM -5 TO 5
   const generateDots = useCallback((count: number) => {
     const positions = new Float32Array(count * 3);
     for (let i = 0; i < count; i++) {
@@ -45,7 +44,7 @@ function PointsComponent({ pointsRef }: { pointsRef: PointsRef }) {
 export default function InteractiveBg() {
   const pointsRef = useRef<ThreePoints | null>(null);
 
-  // Handle mouse movement for subtle interactivity
+  // MOUSE MOVEMENT
   const handlePointerMove = useCallback((e: any) => {
     if (pointsRef.current) {
       const deltaX = MathUtils.lerp(0, e.movementX * 0.0005, 0.1);

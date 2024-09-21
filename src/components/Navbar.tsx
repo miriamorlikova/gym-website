@@ -1,38 +1,65 @@
 import AnchorLink from "react-anchor-link-smooth-scroll";
 import { HiOutlineMenu } from "react-icons/hi";
-import { useState } from "react";
 import { Button } from "./Button";
 import NavLink from "./NavLink";
-import MobileNavbar from "./MobileNavbar";
 import useMediaQuery from "@/hooks/useMediaQuery";
-import {
-  SelectedPageValueType,
-  useSelectedPage,
-} from "@/hooks/useSelectedPage";
+import { SelectedPageValueType } from "@/App";
 
 type NavbarProps = {
   isMenuOpen: boolean;
   setIsMenuOpen: (value: boolean) => void;
+  selectedPage: SelectedPageValueType;
+  setSelectedPage: (value: SelectedPageValueType) => void;
 };
 
-export default function Navbar({ isMenuOpen, setIsMenuOpen }: NavbarProps) {
+export default function Navbar({
+  isMenuOpen,
+  setIsMenuOpen,
+  setSelectedPage,
+  selectedPage,
+}: NavbarProps) {
   const isAboveMediumScreens = useMediaQuery("(min-width: 1075px)");
   const isAboveSmallScreens = useMediaQuery("(min-width: 550px)");
-  const { setSelectedPage } = useSelectedPage();
+
   return (
     <div className="flex justify-between">
       {isAboveMediumScreens ? (
         <div className="flex justify-between">
           <div className="hidden md:flex lg:gap-16">
             <nav className="flex items-center justify-between gap-1 font-exo text-xs capitalize lg:text-sm">
-              <NavLink page="home" />
-              <NavLink page="benefits" />
-              <NavLink page="our classes" />
-              <NavLink page="contact us" />
+              <NavLink
+                page="home"
+                setSelectedPage={setSelectedPage}
+                selectedPage={selectedPage}
+              />
+              <NavLink
+                page="benefits"
+                setSelectedPage={setSelectedPage}
+                selectedPage={selectedPage}
+              />
+              <NavLink
+                page="our classes"
+                setSelectedPage={setSelectedPage}
+                selectedPage={selectedPage}
+              />
+              <NavLink
+                page="contact us"
+                setSelectedPage={setSelectedPage}
+                selectedPage={selectedPage}
+              />
             </nav>
 
             <div className="flex items-center justify-between gap-2 text-nowrap">
-              <Button variant="secondary">sign in</Button>
+              <Button variant="secondary">
+                <AnchorLink
+                  onClick={() =>
+                    setSelectedPage(SelectedPageValueType.ContactUs)
+                  }
+                  href={`#${SelectedPageValueType.ContactUs}`}
+                >
+                  sign in
+                </AnchorLink>
+              </Button>
               <Button>
                 <AnchorLink
                   onClick={() => {
@@ -58,7 +85,14 @@ export default function Navbar({ isMenuOpen, setIsMenuOpen }: NavbarProps) {
           {isAboveSmallScreens && (
             <div className="items-center">
               <Button variant="secondary" size="noxpadding">
-                sign in
+                <AnchorLink
+                  onClick={() =>
+                    setSelectedPage(SelectedPageValueType.ContactUs)
+                  }
+                  href={`#${SelectedPageValueType.ContactUs}`}
+                >
+                  sign in
+                </AnchorLink>
               </Button>
             </div>
           )}

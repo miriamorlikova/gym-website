@@ -1,19 +1,17 @@
 import AnchorLink from "react-anchor-link-smooth-scroll";
 import { Button } from "@/components/Button";
-import Footer from "@/components/Footer";
-import {
-  SelectedPageValueType,
-  useSelectedPage,
-} from "@/hooks/useSelectedPage";
+import FirstSectionFooter from "@/components/FirstSectionFooter";
+import { SelectedPageValueType } from "@/App";
 import useMediaQuery from "@/hooks/useMediaQuery";
 import logo from "../assets/basic-logo.png";
 import firstSectionPic from "../assets/first-section-pic.png";
 import { motion } from "framer-motion";
 
-type HomeSectionProps = {};
+type HomeSectionProps = {
+  setSelectedPage: (value: SelectedPageValueType) => void;
+};
 
-export default function HomeSection(props: HomeSectionProps) {
-  const { setSelectedPage } = useSelectedPage();
+export default function HomeSection({ setSelectedPage }: HomeSectionProps) {
   const isAboveMediumScreens = useMediaQuery("(min-width: 1075px)");
 
   return (
@@ -23,7 +21,7 @@ export default function HomeSection(props: HomeSectionProps) {
         className="items-center justify-center gap-10 px-8 pt-16 md:flex md:h-5/6 lg:px-12"
         onViewportEnter={() => setSelectedPage(SelectedPageValueType.Home)}
       >
-        {/* MAIN HEADINGS */}
+        {/* HEADINGS */}
         <div className="z-10 md:mt-36 md:basis-3/5">
           <motion.div
             className="pt-6 md:pl-8 md:pt-0"
@@ -49,7 +47,7 @@ export default function HomeSection(props: HomeSectionProps) {
             <h2 className="mb-6 font-oxanium text-base font-medium tracking-wide text-gold-accent sm:text-lg md:text-xl">
               Became your best self with us
             </h2>
-            {/* MAIN TEXT */}
+            {/* TEXT */}
 
             <p className="mb-8 max-w-[500px] text-xs font-light tracking-normal sm:text-sm">
               Unlock your full potential with us! At our gym, we believe that
@@ -84,8 +82,10 @@ export default function HomeSection(props: HomeSectionProps) {
             </Button>{" "}
             <Button variant="secondary" size="noxpadding">
               <AnchorLink
-                onClick={() => setSelectedPage(SelectedPageValueType.ContactUs)}
-                href={`#${SelectedPageValueType.ContactUs}`}
+                onClick={() =>
+                  setSelectedPage(SelectedPageValueType.OurClasses)
+                }
+                href={`#${SelectedPageValueType.OurClasses}`}
               >
                 learn more
               </AnchorLink>
@@ -99,7 +99,7 @@ export default function HomeSection(props: HomeSectionProps) {
         </div>
       </motion.div>
       {/* SPONSORS */}
-      {isAboveMediumScreens && <Footer />}
+      {isAboveMediumScreens && <FirstSectionFooter />}
     </section>
   );
 }
